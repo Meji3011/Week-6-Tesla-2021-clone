@@ -2,6 +2,8 @@
 
 This project is a clone of the 2021 version of Tesla's website, built using React, Redux, and Firebase. The main goal of this project was to recreate the core functionalities and design elements of the Tesla website while following clean coding practices and best practices for React development.
 
+week-6-tesla-2021-clone-git-master-ryan-tangs-projects-6e3ce848.vercel.app
+
 ## Features
 
 - User authentication: The project utilizes Firebase to implement user login functionality, allowing users to create accounts and securely log in to the application.
