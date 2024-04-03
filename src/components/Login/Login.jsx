@@ -1,23 +1,42 @@
 import React, { useState } from "react";
 import "./Login.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LanguageIcon from "@mui/icons-material/Language";
 import ButtonPrimary from "../ButtonPrimary/ButtonPrimary";
 import ButtonSecondary from "../ButtonSecondary/ButtonSecondary";
+import { auth } from "../../firebase/init";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { useDispatch } from "react-redux";
+import { login } from "../../features/userSlice";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const signIn = (e) => {
-    e.preventDefault()
-  }
+    e.preventDefault();
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then((data) => {
+        dispatch(
+          login({
+            email: data.user.email,
+            uid: data.user.uid,
+            dislpayName: data.user.displayName,
+          })
+        );
+        navigate("/teslaaccount");
+      })
+      .catch((error) => alert(error.message));
+  };
 
   return (
     <div className="login">
       <div className="login__header">
         <div className="login__logo">
-          <Link>
+          <Link to="/">
             <img
               src="https://assets.website-files.com/5e8fceb1c9af5c3915ec97a0/5ec2f037975ed372da9f6286_Tesla-Logo-PNG-HD.png"
               alt=""
@@ -45,13 +64,13 @@ function Login() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <ButtonPrimary name="Sign In" type="submit" onClick={signIn}/>
+          <ButtonPrimary name="Sign In" type="submit" onClick={signIn} />
         </form>
         <div className="login__divider">
-            <hr /> <span>OR</span> <hr />
+          <hr /> <span>OR</span> <hr />
         </div>
-        <Link to='/singup'>
-            <ButtonSecondary name="Create Account"></ButtonSecondary>
+        <Link to="/signup">
+          <ButtonSecondary name="Create Account" />
         </Link>
       </div>
     </div>
