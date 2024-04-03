@@ -4,6 +4,12 @@ This project is a clone of the 2021 version of Tesla's website, built using Reac
 
 [Tesla Clone Website](https://https://week-6-tesla-2021-clone.vercel.app/)
 
+## Changes compared to original
+
+- React-Router-Dom uses Navigate and useNavigate now instead of history and redirect. Changes were made accordingly.
+- React-Router-Dom now uses Routes instead of Switch.
+- Firebase simplified some coding syntax, which I'm not sure how to describe as I'm new to the whole procedure of using firebase for authentication.
+
 ## Features
 
 - User authentication: The project utilizes Firebase to implement user login functionality, allowing users to create accounts and securely log in to the application.
@@ -18,6 +24,12 @@ This project is a clone of the 2021 version of Tesla's website, built using Reac
 - Firebase: A comprehensive development platform that provides backend services, including authentication and database management.
 - HTML5 and CSS3: The latest web standards for structuring and styling the application.
 
+## What's not included
+
+- Reponsiveness
+- A functional shopping cart and dynamic account info display that changes based on what you own/bought
+- Catalogue of goods and info display for each car/item that Tesla sells.
+
 ## Acknowledgements
 
 This project was inspired by the tutorial series "Tesla Clone" by alicodes on YouTube. For introductory level of React, Redux, and Firebase, alicodes does a great job guiding you throughout the cloning process so you understand the functions of these technologies.
@@ -29,3 +41,5 @@ If you have any questions, suggestions, or feedback, please feel free to reach o
 - Email: tangguangran@gmail.com
 
 Thank you for checking out this Tesla clone project!
+
+4/2/2024
